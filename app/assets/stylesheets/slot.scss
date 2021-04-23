@@ -1,0 +1,135 @@
+.slotMachineNoTransition {
+    transition: none !important;
+}
+
+.slotMachineBlurFast {
+    filter: blur(5px);
+}
+
+.slotMachineBlurMedium {
+    filter: blur(3px);
+}
+
+.slotMachineBlurSlow {
+    filter: blur(2px);
+}
+
+.slotMachineBlurTurtle {
+    filter: blur(1px);
+}
+
+.slotMachineGradient {
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(25%, rgba(0,0,0,1)), color-stop(75%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0)) );
+}
+
+
+
+ @charset "utf-8";
+/* CSS Document */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* @import url(http://fonts.googleapis.com/css?family=Pathway+Gothic+One); */
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.well {
+  padding: 25px;
+  background-color: rgba(245, 245, 245, 0.7);
+  border-radius: 5px;
+}
+
+
+.btn-group-justified {
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+a{
+  color: #ccd500;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  color: #a9b119;
+}
+
+.slotMachine .slot{
+
+}
+
+
+
+
+
+
+/*
+ * Casino
+ */
+
+.content-slot{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media all and (max-device-width: 480px) {
+  flex-direction: column !important;
+}
+
+
+
+
+.slot img {
+  height: 150px;
+  width: 150px;
+}
+
+#casino .content:nth-child(1) {
+  text-align: center;
+  min-height: 580px;
+}
+
+#casino .content > div {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.machineContainer{
+  padding: 5px 1px 5px 1px;
+  height: 300px;
+}
+
+.slotMachine{
+  width: 150px;
+  border: transparent;
+  height: 150px;
+  border-radius: 50%;
+}
+
+#casino .btn-group {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+#casino .btn-group .btn {
+  border: none;
+  background-color: #4135c891;
+}
+
+#casino .btn-group .btn:hover, .btn-group .btn:focus {
+  background-color: #2418b5d9;
+}
