@@ -8,5 +8,5 @@ RailsAdmin.config do |config|
       field :url
     end
   end
-  config.included_models = ["Song", "Clock","Weather","Place"]
+  config.included_models = %w(Song Clock Weather Place)
 end
