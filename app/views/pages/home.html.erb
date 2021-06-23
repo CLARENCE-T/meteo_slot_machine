@@ -4,148 +4,43 @@
         <h1>Meteo Mirage</h1>
 
         <div class="content-slot">
-          <div id="casino1" class="slotMachine">
-            <div class="slot slot1"><img src=<%= asset_path( 'weathers/weather1.png' )%>></div>
-            <div class="slot slot2"><img src=<%= asset_path( 'weathers/weather2.png' )%>></div>
-            <div class="slot slot3"><img src=<%= asset_path( 'weathers/weather3.png' )%>></div>
-            <div class="slot slot4"><img src=<%= asset_path( 'weathers/weather4.png' )%>></div>
-            <div class="slot slot5"><img src=<%= asset_path( 'weathers/weather5.png' )%>></div>
-            <div class="slot slot6"><img src=<%= asset_path( 'weathers/weather6.png' )%>></div>
+          <div id="machineClock" class="slotMachine">
+            <% @Clocks.each_with_index do |clock, idx| %>
+              <div class="slot slot<%= idx%>" data-name="<%= clock.name %>">
+                <%= image_tag clock.img %>
+              </div>
+            <% end %>
           </div>
 
-          <div id="casino2" class="slotMachine">
-            <div class="slot slot1"><img src=<%= asset_path( 'clocks/clock1.png' )%>></div>
-            <div class="slot slot2"><img src=<%= asset_path( 'clocks/clock2.png' )%>></div>
-            <div class="slot slot3"><img src=<%= asset_path( 'clocks/clock3.png' )%>></div>
-            <div class="slot slot4"><img src=<%= asset_path( 'clocks/clock4.png' )%>></div>
-            <div class="slot slot5"><img src=<%= asset_path( 'clocks/clock5.png' )%>></div>
-            <div class="slot slot6"><img src=<%= asset_path( 'clocks/clock6.png' )%>></div>
+          <div id="machineWeather" class="slotMachine">
+            <% @Weathers.each_with_index do |weather, idx| %>
+              <div class="slot slot<%= idx%>" data-name="<%= weather.name %>">
+                <%= image_tag weather.img %>
+              </div>
+            <% end %>
           </div>
 
-          <div id="casino3" class="slotMachine">
-            <div class="slot slot1"><img src=<%= asset_path( 'places/day/place1.png' )%>></div>
-            <div class="slot slot2"><img src=<%= asset_path( 'places/day/place2.png' )%>></div>
-            <div class="slot slot3"><img src=<%= asset_path( 'places/day/place3.png' )%>></div>
-            <div class="slot slot4"><img src=<%= asset_path( 'places/day/place4.png' )%>></div>
-            <div class="slot slot5"><img src=<%= asset_path( 'places/day/place5.png' )%>></div>
-            <div class="slot slot6"><img src=<%= asset_path( 'places/day/place6.png' )%>></div>
+          <div id="machinePlace" class="slotMachine">
+            <% @Places.each_with_index do |place, idx| %>
+              <div class="slot slot<%= idx%>" data-name="<%= place.name %>">
+                <%= image_tag place.img %>
+              </div>
+            <% end %>
           </div>
 
         </div>
+        <div class="result-container">
+          <div><h1 id="resultClock"></h1></div>
+          <div><h1 id="resultWeather"></h1></div>
+          <div><h1 id="resultPlace"></h1></div>
+        </div>
+        <a>
+          <a id='resultSong'></a>
+        </a>
         <div class="btn-group btn-group-justified row mt-4" role="group">
           <button id="casinoShuffle" type="button" class="btn btn-primary btn-lg col-sm-4">Shuffle!</button>
           <button id="casinoStop" type="button" class="btn btn-primary btn-lg col-sm-4">Stop!</button>
         </div>
       </div>
-
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-10 col-md-5 offset-sm-1 offset-md-1">
-            <pre><code id="codeBlock5"></code></pre>
-          </div>
-
-          <div class="col-sm-10 col-md-5 offset-sm-1 offset-md-0">
-            <pre><code id="codeBlock6"></code></pre>
-          </div>
-        </div>
-      </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<div id="randomize">
-      <div class="container">
-        <h1>Mirage Machine</h1>
-        <div class="row">
-
-          <div class="col-sm-4">
-            <div>
-              <div id="machine1" class="randomizeMachine" style="overflow: hidden;">
-                <div class="slotMachineContainer" style="transition: all 1s ease-in-out 0s; transform: matrix(1, 0, 0, 1, 0, 0);">
-                  <div><img src=<%= asset_path( 'weathers/weather1.png' )%>></div>
-                  <div><img src=<%= asset_path( 'weathers/weather2.png' )%>></div>
-                  <div><img src=<%= asset_path( 'weathers/weather3.png' )%>></div>
-                  <div><img src=<%= asset_path( 'weathers/weather4.png' )%>></div>
-                  <div><img src=<%= asset_path( 'weathers/weather5.png' )%>></div>
-                  <div><img src=<%= asset_path( 'weathers/weather6.png' )%>></div>
-                </div>
-              </div>
-            </div>
-            <div id="machine1Result" class="col-xs-4 machineResult">Index: 0</div>
-          </div>
-
-          <div class="col-sm-4">
-            <div>
-              <div id="machine2" class="randomizeMachine" style="overflow: hidden;">
-                <div class="slotMachineContainer" style="transition: all 1s ease-in-out 0s; transform: matrix(1, 0, 0, 1, 0, 0);">
-                  <div><img src=<%= asset_path( 'places/day/place1.png' )%>></div>
-                  <div><img src=<%= asset_path( 'places/day/place2.png' )%>></div>
-                  <div><img src=<%= asset_path( 'places/day/place3.png' )%>></div>
-                  <div><img src=<%= asset_path( 'places/day/place4.png' )%>></div>
-                  <div><img src=<%= asset_path( 'places/day/place5.png' )%>></div>
-                  <div><img src=<%= asset_path( 'places/day/place6.png' )%>></div>
-                </div>
-              </div>
-            </div>
-            <div id="machine2Result" class="col-xs-4 machineResult">Index: 1</div>
-          </div>
-
-          <div class="col-sm-4">
-            <div>
-              <div id="machine3" class="randomizeMachine" style="overflow: hidden;">
-                <div class="slotMachineContainer" style="transition: all 1s ease-in-out 0s; transform: matrix(1, 0, 0, 1, 0, 0);">
-                  <div><img src=<%= asset_path( 'clocks/clock1.png' )%>></div>
-                  <div><img src=<%= asset_path( 'clocks/clock2.png' )%>></div>
-                  <div><img src=<%= asset_path( 'clocks/clock3.png' )%>></div>
-                  <div><img src=<%= asset_path( 'clocks/clock4.png' )%>></div>
-                  <div><img src=<%= asset_path( 'clocks/clock5.png' )%>></div>
-                  <div><img src=<%= asset_path( 'clocks/clock6.png' )%>></div>
-                </div>
-              </div>
-            </div>
-            <div id="machine3Result" class="col-xs-4 machineResult">Index: 2</div>
-          </div>
-
-          <div class="btn-group btn-group-justified" role="group">
-            <button id="randomizeButton" type="button" class="btn btn-danger btn-lg">Shuffle</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-10 offset-sm-1">
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
- -->
